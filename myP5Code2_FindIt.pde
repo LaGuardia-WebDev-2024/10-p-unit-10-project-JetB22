@@ -1,12 +1,12 @@
 var starXPos = [];
 var starYPos = [];
 var star = "⭐️";
-var starTotal = 100;
+var starTotal = 10000;
 
 var planetXPos = [];
 var planetYPos = [];
 var planet = "🪐";
-var planetTotal = 3;
+var planetTotal = 100;
 var planetFound = 0;
 
 setup = function() {
@@ -33,7 +33,7 @@ mouseClicked = function(){
 
 var check = function(xClick, yClick){
   for(var i = 0; i < planetXPos.length; i++){
-    if(dist(xClick - 5, yClick - 5, planetXPos[i], planetYPos[i])<15){
+    if(dist(xClick - 5, yClick - 5, planetXPos[i], planetYPos[i])<100){
       planetXPos.splice(i, 1);
       planetYPos.splice(i, 1);
       planetFound++;
@@ -76,8 +76,8 @@ var reset = function(){
 
 
   for(var i = 0; i < starTotal; i++){
-    starXPos.push(random(0,600));
-    starYPos.push(random(0,400));
+    starXPos.push(random(-10,600));
+    starYPos.push(random(-10,400));
   }
 
   for(var i = 0; i < planetTotal; i++){
