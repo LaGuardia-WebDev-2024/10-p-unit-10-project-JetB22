@@ -1,16 +1,18 @@
 var starXPos = [];
 var starYPos = [];
 var star = "⭐️";
-var starTotal = 10000;
+var starTotal = 1000;
 
 var planetXPos = [];
 var planetYPos = [];
 var planet = "🪐";
-var planetTotal = 100;
+var planetTotal = 1;
 var planetFound = 0;
 
 setup = function() {
    size(600, 450); 
+
+   frameRate(5);
 
    reset();
 }
@@ -33,7 +35,7 @@ mouseClicked = function(){
 
 var check = function(xClick, yClick){
   for(var i = 0; i < planetXPos.length; i++){
-    if(dist(xClick - 5, yClick - 5, planetXPos[i], planetYPos[i])<100){
+    if(dist(xClick - 5, yClick - 5, planetXPos[i], planetYPos[i])<10){
       planetXPos.splice(i, 1);
       planetYPos.splice(i, 1);
       planetFound++;
@@ -45,7 +47,7 @@ var display = function(){
   background(100,100,100);
 
   fill(200,200,0);
-  textSize(20);
+  textSize(5);
 
   for(var i = 0; i < planetXPos.length; i ++){
     text(planet, planetXPos[i], planetYPos[i]);
@@ -54,6 +56,8 @@ var display = function(){
   for(var i = 0; i < starXPos.length; i ++){
     text(star, starXPos[i], starYPos[i]);
   }
+
+  textSize(20);
 
   fill(0,0,0);
   rect(0,400,600,50);
@@ -76,7 +80,7 @@ var reset = function(){
 
 
   for(var i = 0; i < starTotal; i++){
-    starXPos.push(random(-10,600));
+    starXPos.push(random(-10,700));
     starYPos.push(random(-10,400));
   }
 

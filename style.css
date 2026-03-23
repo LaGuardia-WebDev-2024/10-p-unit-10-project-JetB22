@@ -1,9 +1,7 @@
 body {
-  background-color: hsl(213, 85%, 92%);
+  background-image: url(wild-sea.png);
   background-blend-mode: overlay;
   text-align: center;
-  background-size: cover;
-  background-repeat: no-repeat;
   background-attachment: fixed; 
   font-family: Georgia, serif;
 }
