@@ -9,7 +9,7 @@ setup = function() {
   background(122, 0, 61);
   
 
-  var shape = [ "Square", "Line", "Rectangle","In Future Update","In Future Update"];
+  var shape = [ "Square", "Line", "L Shape","In Future Update","In Future Update"];
 
   fill(random(100,255),random(100,255),random(100,255))
   var textY = 125;
@@ -64,32 +64,40 @@ draw = function() {
   } 
 
   if (pieceType === 2) {
-    drawRectShape();
+    drawLShape();
     pieceY += 5;
     if (pieceY + 70 >= 365) {
       pickPiece();
     }
   } 
 
-};
+  if (pieceType === 3) {
+    drawLShapeDos();
+    pieceY += 5;
+    if (pieceY + 70 >= 365) {
+      pickPiece();
+    }
+  } 
 
-function keyPressed(){
-    if (key == 'a') pieceX - 30
+  if(keyPressed){
+    if (key === 'a') pieceX -= 30;
+  
+    if (key === 'd') pieceX += 30;
   }
+
+};
 
 // Draw the piece======================================
 
 var pickPiece = function() {
   pieceY = 50;
-  pieceType = floor(random(0,3));
+  pieceType = round(random(0,3));
   pieceX = 270;
 };
 
 // Shapes==============================================
 
 var drawSquareShape = function(){
-  
-
   fill(250,250,10);
   rect(pieceX, pieceY, 60, 70);
 };
@@ -99,9 +107,16 @@ var drawLineShape = function(){
   rect(pieceX, pieceY, 30, 140);
 };
 
-var drawRectShape = function(){
+var drawLShape = function(){
   fill(50,255,180);
-  rect(pieceX, pieceY, 60, 110);
+  rect(pieceX, pieceY, 30, 110);
+  rect(pieceX-30, pieceY+75, 30, 35)
+};
+
+var drawLShapeDos = function(){
+  fill(200,255,100);
+  rect(pieceX, pieceY, 30, 110);
+  rect(pieceX+30, pieceY+75, 30, 35)
 };
 
 // Shapes==============================================
